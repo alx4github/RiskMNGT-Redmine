@@ -1,21 +1,32 @@
-roles_01: 
+--- 
+roles_001: 
   name: Manager
   id: 1
   builtin: 0
+  issues_visibility: all
   permissions: |
     --- 
+    - :add_project
     - :edit_project
+    - :close_project
+    - :select_project_modules
     - :manage_members
     - :manage_versions
     - :manage_categories
+    - :view_issues
     - :add_issues
     - :edit_issues
     - :manage_issue_relations
+    - :manage_subtasks
     - :add_issue_notes
     - :move_issues
     - :delete_issues
     - :view_issue_watchers
     - :add_issue_watchers
+    - :set_issues_private
+    - :set_notes_private
+    - :view_private_notes
+    - :delete_issue_watchers
     - :manage_public_queries
     - :save_queries
     - :view_gantt
@@ -27,8 +38,11 @@ roles_01:
     - :manage_news
     - :comment_news
     - :view_documents
-    - :manage_documents
+    - :add_documents
+    - :edit_documents
+    - :delete_documents
     - :view_wiki_pages
+    - :export_wiki_pages
     - :view_wiki_edits
     - :edit_wiki_pages
     - :delete_wiki_pages_attachments
@@ -44,23 +58,26 @@ roles_01:
     - :browse_repository
     - :manage_repository
     - :view_changesets
-    - :risk_admin_permission
-    
+    - :manage_related_issues
+    - :manage_project_activities
+
   position: 1
-  
-roles_2: 
+roles_002: 
   name: Developer
   id: 2
   builtin: 0
+  issues_visibility: default
   permissions: |
     --- 
     - :edit_project
     - :manage_members
     - :manage_versions
     - :manage_categories
+    - :view_issues
     - :add_issues
     - :edit_issues
     - :manage_issue_relations
+    - :manage_subtasks
     - :add_issue_notes
     - :move_issues
     - :delete_issues
@@ -74,7 +91,9 @@ roles_2:
     - :manage_news
     - :comment_news
     - :view_documents
-    - :manage_documents
+    - :add_documents
+    - :edit_documents
+    - :delete_documents
     - :view_wiki_pages
     - :view_wiki_edits
     - :edit_wiki_pages
@@ -88,22 +107,61 @@ roles_2:
     - :manage_files
     - :browse_repository
     - :view_changesets
-    - :project_risks
 
-  position: 2  
-  
-  
-roles_4: 
-  name: Non member
-  id: 4
-  builtin: 1
+  position: 2
+roles_003: 
+  name: Reporter
+  id: 3
+  builtin: 0
+  issues_visibility: default
   permissions: |
     --- 
+    - :edit_project
+    - :manage_members
+    - :manage_versions
+    - :manage_categories
+    - :view_issues
     - :add_issues
     - :edit_issues
     - :manage_issue_relations
     - :add_issue_notes
     - :move_issues
+    - :view_issue_watchers
+    - :save_queries
+    - :view_gantt
+    - :view_calendar
+    - :log_time
+    - :view_time_entries
+    - :manage_news
+    - :comment_news
+    - :view_documents
+    - :add_documents
+    - :edit_documents
+    - :delete_documents
+    - :view_wiki_pages
+    - :view_wiki_edits
+    - :edit_wiki_pages
+    - :delete_wiki_pages
+    - :add_messages
+    - :manage_boards
+    - :view_files
+    - :manage_files
+    - :browse_repository
+    - :view_changesets
+
+  position: 3
+roles_004: 
+  name: Non member
+  id: 4
+  builtin: 1
+  issues_visibility: default
+  permissions: |
+    --- 
+    - :view_issues
+    - :add_issues
+    - :edit_issues
+    - :manage_issue_relations
+    - :add_issue_notes
     - :save_queries
     - :view_gantt
     - :view_calendar
@@ -111,7 +169,6 @@ roles_4:
     - :view_time_entries
     - :comment_news
     - :view_documents
-    - :manage_documents
     - :view_wiki_pages
     - :view_wiki_edits
     - :edit_wiki_pages
@@ -122,13 +179,14 @@ roles_4:
     - :view_changesets
 
   position: 4
-  
-roles_5: 
+roles_005: 
   name: Anonymous
   id: 5
   builtin: 2
+  issues_visibility: default
   permissions: |
     --- 
+    - :view_issues
     - :add_issue_notes
     - :view_gantt
     - :view_calendar
@@ -140,4 +198,5 @@ roles_5:
     - :browse_repository
     - :view_changesets
 
-  position: 5  
+  position: 5
+
